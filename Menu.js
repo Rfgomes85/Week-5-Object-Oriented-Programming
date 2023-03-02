@@ -112,8 +112,8 @@ each number command will cause the menu to perform what is listed */
       //Checks for valid selection
       this.selectedBrand = this.brands[index];
       let description = 'Brand Name: ' + this.selectedBrand.name + '\n';
-      description += ' '  + this.selectedBrand.describe() +'\n ';
-      //stopped here
+      description += ' '  + this.selectedBrand.describe() + '\n ';
+      
       for (let i = 0; i < this.selectedBrand.wrestlers.length; i++) {
         // description += i + ') ' + this.selectedTeam.players[i].name + ' - '
         // + this.selectedTeam.players[i].position + '\n';
@@ -132,7 +132,8 @@ each number command will cause the menu to perform what is listed */
 }//stopped here
     createWrestler() {
     let name = prompt('Enter name for new wrestler: ');
-    this.selectedBrand.addWrestler(new Wrestler(name));
+    let brand = this.selectedBrand.name
+    this.selectedBrand.addWrestler(new Wrestler(name,brand));
     }
   deleteWrestler() {
     let index = prompt('Choose index of wrestler you would like to delete: ');
