@@ -8,17 +8,28 @@ class Wrestler {
  
   describe() {
     //console.log(`${this.name} wrestles for ${this.company}`)
-    return `${this.name} wrestles for ${this.company}`; //company? or brand?
+    return `${this.name} wrestles for ${this.brand}`; // brand
   }
   }
 //Creating the class for the shows of the company
 class Brand {
-  constructor(companyBrand) {
-    this.brand = companyBrand;
+  constructor(name) {
+    this.name = name;
     this.wrestlers = [];
+  }//Adds wrestler to the brand
+  addWrestler(wrestler) {
+    if (wrestler instanceof Wrestler) {
+    this.wrestlers.push(wrestler);
+    } else {
+    throw new Error(`You can only add an instance of Wrestler. 
+    argument is not a wrestler: ${wrestler}`);
+    }
+    }
+    
+    describe() {
+    return `${this.name} has ${this.wrestlers.length} wrestlers.`;
+    }
   }
-}
-
 class Menu {
   //what drives the application and the choices made
   constructor() {
